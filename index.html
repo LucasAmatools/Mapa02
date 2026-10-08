@@ -85,7 +85,7 @@ const REGIONS = ["Norte","Nordeste","Centro-Oeste","Sudeste","Sul"];
 const COLORS = {revenue2025:["#102440","#19517d","#207e9c","#36b7ae","#a0e9be"],revenue2026:["#102440","#19517d","#207e9c","#36b7ae","#a0e9be"],shareBrazil:["#122b4c","#1d5880","#23859a","#43b9a5","#b5e7ad"],growth:["#ea7581","#e7a17b","#25334c","#40bca9","#8be1b6"]};
 const LABELS = {revenue2025:"Faturamento 2025",revenue2026:"Faturamento 2026",growth:"Crescimento",shareBrazil:"Participação Brasil"};
 const stateByUf = Object.fromEntries(STATES.map(s=>[s.uf,s]));
-let selected = "SP", metric = "revenue2026", region = "all", sortKey = "revenue2026", sortDirection = -1;
+let selected = null, metric = "revenue2026", region = "all", sortKey = "revenue2026", sortDirection = -1;
 const $ = id=>document.getElementById(id);
 const brl = v=>new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL",maximumFractionDigits:0}).format(v);
 const brl2 = v=>new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL",minimumFractionDigits:2,maximumFractionDigits:2}).format(v);
