@@ -129,7 +129,7 @@ function render(){renderMap();renderSelected();renderRanking();renderRegions();r
 REGIONS.forEach(r=>{const o=document.createElement("option");o.value=r;o.textContent=r;$("regionFilter").append(o)});
 const best=[...STATES].sort((a,b)=>b.growth-a.growth)[0];
 $("kpiRevenue2025").textContent=brl(BRAZIL.revenue2025);$("kpiRevenue").textContent=brl(BRAZIL.revenue2026);$("kpiGrowth").textContent=signedPct(BRAZIL.growth);$("kpiTopGrowth").textContent=signedPct(best.growth);$("kpiTopGrowthNote").textContent=`${best.uf} · ${NAMES[best.uf]}`;$("kpiStates").textContent=STATES.length.toString();
-$("metric").addEventListener("change",e=>{metric=e.target.value;sortKey=metric;render()});
+$("metric").addEventListener("change",e=>{metric=e.target.value;sortKey=metric;selected=null;render()});
 $("regionFilter").addEventListener("change",e=>{region=e.target.value;selected=null;render()});
 $("search").addEventListener("input",renderTable);
 document.querySelectorAll("th[data-sort]").forEach(th=>th.addEventListener("click",()=>{const key=th.dataset.sort;if(sortKey===key)sortDirection*=-1;else{sortKey=key;sortDirection=-1}renderTable()}));
